@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700;800;900&display=swap');
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-cinzel: "Cinzel", serif;
+  
+  --color-gold-50: #fefcf6;
+  --color-gold-100: #faf3dc;
+  --color-gold-200: #f3e4b5;
+  --color-gold-300: #ebd188;
+  --color-gold-400: #e2ba5e;
+  --color-gold-500: #d4af37; /* Radiant gold */
+  --color-gold-600: #b89127;
+  --color-gold-700: #94711c;
+  --color-gold-800: #735515;
+  --color-gold-900: #5c4210;
+  
+  --color-maroon-50: #faf0f2;
+  --color-maroon-100: #f5e1e5;
+  --color-maroon-200: #ebc2cc;
+  --color-maroon-300: #db99aa;
+  --color-maroon-400: #c4667f;
+  --color-maroon-500: #aa3c59;
+  --color-maroon-600: #8b1d3a;
+  --color-maroon-700: #5D001E; /* Elegant Editorial Maroon/Burgundy */
+  --color-maroon-800: #4d0018;
+  --color-maroon-900: #3b0012;
+}
+
+/* Custom scrollbars and transitions */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5a85a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #58181a;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Shimmer effects for premium look */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2.5s infinite;
+  content: '';
+}
+
+/* Admin Panel Light Theme Overrides */
+.cms-light-theme {
+  background-color: #f5f5f4 !important;
+  color: #292524 !important;
+}
+
+.cms-light-theme header {
+  background-color: #ffffff !important;
+  border-color: #e7e5e4 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.cms-light-theme header h1 {
+  color: #8b1d3a !important; /* Maroon-600 */
+}
+
+.cms-light-theme aside {
+  background-color: #ffffff !important;
+  border-color: #e7e5e4 !important;
+}
+
+.cms-light-theme aside button {
+  color: #57534e !important;
+}
+
+.cms-light-theme aside button:hover {
+  background-color: #f5f5f4 !important;
+  color: #1c1917 !important;
+}
+
+.cms-light-theme aside button.bg-gold-500 {
+  background-color: #8b1d3a !important; /* Change active tab to maroon */
+  color: #ffffff !important;
+}
+
+.cms-light-theme main {
+  background-color: #fafaf9 !important;
+}
+
+.cms-light-theme main h2 {
+  color: #8b1d3a !important;
+}
+
+/* Card overrides */
+.cms-light-theme .bg-stone-900\/40,
+.cms-light-theme .bg-stone-900,
+.cms-light-theme .bg-stone-950\/30 {
+  background-color: #ffffff !important;
+  border-color: #e7e5e4 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Inputs overrides */
+.cms-light-theme input,
+.cms-light-theme select,
+.cms-light-theme textarea {
+  background-color: #ffffff !important;
+  border-color: #d6d3d1 !important;
+  color: #1c1917 !important;
+}
+.cms-light-theme input::placeholder,
+.cms-light-theme textarea::placeholder {
+  color: #a8a29e !important;
+}
+.cms-light-theme input:focus,
+.cms-light-theme select:focus,
+.cms-light-theme textarea:focus {
+  border-color: #d4af37 !important; /* Gold */
+  outline: none !important;
+}
+
+/* Text overrides */
+.cms-light-theme .text-stone-100,
+.cms-light-theme .text-stone-200,
+.cms-light-theme .text-stone-300 {
+  color: #1c1917 !important;
+}
+
+.cms-light-theme .text-stone-400 {
+  color: #78716c !important;
+}
+
+.cms-light-theme .text-gold-300,
+.cms-light-theme .text-gold-400 {
+  color: #b45309 !important; /* Darker gold for contrast */
+}
+
+/* Borders */
+.cms-light-theme .border-stone-800,
+.cms-light-theme .border-stone-850,
+.cms-light-theme .border-stone-700 {
+  border-color: #e7e5e4 !important;
+}
+
+/* Table overrides */
+.cms-light-theme th {
+  background-color: #fafaf9 !important;
+  color: #57534e !important;
+  border-color: #e7e5e4 !important;
+}
+.cms-light-theme td {
+  border-color: #e7e5e4 !important;
+  color: #1c1917 !important;
+}
+.cms-light-theme tr:hover {
+  background-color: #fdfbf7 !important;
+}
+
+/* Login panel light mode */
+.cms-light-theme-login {
+  background-color: #f5f5f4 !important;
+}
+.cms-light-theme-login h2 {
+  color: #8b1d3a !important;
+}
+.cms-light-theme-login p {
+  color: #78716c !important;
+}
+.cms-light-theme-login .bg-stone-900 {
+  background-color: #ffffff !important;
+  border-color: #e7e5e4 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+}
+.cms-light-theme-login label {
+  color: #57534e !important;
+}
+.cms-light-theme-login input {
+  background-color: #ffffff !important;
+  border-color: #d6d3d1 !important;
+  color: #1c1917 !important;
+}
+.cms-light-theme-login button {
+  background-color: #8b1d3a !important;
+  color: #ffffff !important;
+}
+.cms-light-theme-login button:hover {
+  background-color: #5d001e !important;
+}
